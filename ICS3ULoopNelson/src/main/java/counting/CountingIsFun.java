@@ -20,7 +20,6 @@ public class CountingIsFun {
 			try {
 				TimeUnit.MILLISECONDS.sleep(50000);
 			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 			count = count + 1;
