@@ -12,10 +12,12 @@ public class ClockTime {
 		int minutetens = 0;
 		int milisecondones = 0;
 		int milisecondtens = 0;
+		int hourones = 0;
+		int hourtens = 0;
 
 		do {
-			System.out.println(":" + minutetens + minuteones + ":" + secondtens + secondones + ":" + milisecondtens
-					+ milisecondones);
+			System.out.println("" + hourtens + hourones + ":" + minutetens + minuteones + ":" + secondtens + secondones
+					+ ":" + milisecondtens + milisecondones);
 
 			try {
 				TimeUnit.MILLISECONDS.sleep(10);
@@ -35,6 +37,18 @@ public class ClockTime {
 						if (secondtens == 6) {
 							secondtens = secondtens - 6;
 							minuteones = minuteones + 1;
+							if (minuteones == 10) {
+								minuteones = minuteones - 10;
+								minutetens = minutetens + 1;
+								if (minutetens == 6) {
+									minutetens = minutetens - 6;
+									hourones = hourones + 1;
+									if (hourones == 10) {
+										hourones = hourones - 10;
+										hourtens = hourtens + 1;
+									}
+								}
+							}
 
 						}
 					}
