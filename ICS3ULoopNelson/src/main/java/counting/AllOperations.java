@@ -19,7 +19,7 @@ public class AllOperations {
 			System.out.println("Multiplication");
 			System.out.println("Division");
 			System.out.println("Exponent");
-			System.out.println("Square Root");
+			System.out.println("Square root");
 			System.out.println("Please make sure to capitalize the first letter");
 			String operation = keyboard.nextLine();
 
@@ -131,13 +131,14 @@ public class AllOperations {
 			} else if (operation.equals("Square root")) {
 				System.out.println("What number would you like to start with?");
 				double starter = keyboard.nextInt();
-				System.out.println("By what number would you like to square root the number by?");
+				System.out.println("What number would you like to square root your number by?");
 				double root = keyboard.nextInt();
 				System.out.println("How many numbers would you like to print");
 				double amount = keyboard.nextInt();
 				keyboard.nextLine();
 				double count = 0;
 				System.out.println(starter);
+				double result = starter;
 				do {
 					try {
 						TimeUnit.MILLISECONDS.sleep(500);
@@ -145,8 +146,8 @@ public class AllOperations {
 						e.printStackTrace();
 					}
 					count = count + 1;
-					// starter = starter ^ (1 / root);
-					System.out.println(starter);
+					result = Math.pow(result, 1/root);
+					System.out.println(result);
 				} while ((count + 1) < amount);
 			}
 
