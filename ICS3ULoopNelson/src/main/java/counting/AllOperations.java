@@ -5,10 +5,16 @@ import java.util.concurrent.TimeUnit;
 
 public class AllOperations {
 
+	Scanner keyboard = new Scanner(System.in);
+
 	public static void main(String[] args) {
+		AllOperations allops = new AllOperations();
+		allops.doStuff();
+	}
+
+	public void doStuff() {
 
 		String response = "";
-		Scanner keyboard = new Scanner(System.in);
 
 		do {
 
@@ -24,25 +30,7 @@ public class AllOperations {
 			String operation = keyboard.nextLine();
 
 			if (operation.equals("Addition")) {
-				System.out.println("What number would you like to start with?");
-				double starter = keyboard.nextInt();
-				System.out.println("By what number would you like to go up?");
-				double add = keyboard.nextInt();
-				System.out.println("How many numbers would you like to print");
-				double amount = keyboard.nextInt();
-				keyboard.nextLine();
-				double count = 0;
-				System.out.println(starter);
-				do {
-					try {
-						TimeUnit.MILLISECONDS.sleep(500);
-					} catch (InterruptedException e) {
-						e.printStackTrace();
-					}
-					count = count + 1;
-					starter = starter + add;
-					System.out.println(starter);
-				} while ((count + 1) < amount);
+				addition();
 
 			} else if (operation.equals("Subtraction")) {
 				System.out.println("What number would you like to start with?");
@@ -146,7 +134,7 @@ public class AllOperations {
 						e.printStackTrace();
 					}
 					count = count + 1;
-					result = Math.pow(result, 1/root);
+					result = Math.pow(result, 1 / root);
 					System.out.println(result);
 				} while ((count + 1) < amount);
 			}
@@ -155,6 +143,29 @@ public class AllOperations {
 			response = keyboard.nextLine();
 
 		} while (response.equals("Yes"));
+
+	}
+
+	private void addition() {
+		System.out.println("What number would you like to start with?");
+		double starter = keyboard.nextInt();
+		System.out.println("By what number would you like to go up?");
+		double add = keyboard.nextInt();
+		System.out.println("How many numbers would you like to print");
+		double amount = keyboard.nextInt();
+		keyboard.nextLine();
+		double count = 0;
+		System.out.println(starter);
+		do {
+			try {
+				TimeUnit.MILLISECONDS.sleep(500);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+			count = count + 1;
+			starter = starter + add;
+			System.out.println(starter);
+		} while ((count + 1) < amount);
 
 	}
 }
