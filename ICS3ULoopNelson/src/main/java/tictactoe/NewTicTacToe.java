@@ -11,6 +11,7 @@ public class NewTicTacToe {
 		NewTicTacToe gameboard = new NewTicTacToe();
 		gameboard.printboard();
 		System.out.println("Where would you like to play? For example: [0][2]");
+		
 
 	}
 
