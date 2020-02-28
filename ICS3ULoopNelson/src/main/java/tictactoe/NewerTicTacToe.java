@@ -4,20 +4,31 @@ import java.util.Scanner;
 
 public class NewerTicTacToe {
 
+	String TL = "/";
+	String TM = "/";
+	String TR = "/";
+	String ML = "/";
+	String MM = "/";
+	String MR = "/";
+	String BL = "/";
+	String BM = "/";
+	String BR = "/";
+
 	static Scanner keyboard = new Scanner(System.in);
-	
+
 	public static void main(String[] args) {
-	
-		NewerTicTacToe gameboard = new NewerTicTacToe();
-		String TL = "/";
-		String TM = "/";
-		String TR = "/";
-		String ML = "/";
-		String MM = "/";
-		String MR = "/";
-		String BL = "/";
-		String BM = "/";
-		String BR = "/";
+		NewerTicTacToe nttt = new NewerTicTacToe();
+		nttt.doit();
+
+		nttt.pwc();
+		nttt.owc();
+		nttt.swc();
+		nttt.wc();
+		nttt.dc();
+	}
+
+	public void doit() {
+
 		System.out.print(TL);
 		System.out.print(TM);
 		System.out.println(TR);
@@ -28,27 +39,27 @@ public class NewerTicTacToe {
 		System.out.print(BM);
 		System.out.println(BR);
 		System.out.println("Where would you like to play? For example: Top Left = TL");
-		String placex = keyboard.nextLine();
-		if (placex.equals("TL")) {
+		String place1 = keyboard.nextLine();
+		if (place1.equals("TL")) {
 			TL = "X";
-		} else if (placex.equals("TM")){
+		} else if (place1.equals("TM")) {
 			TM = "X";
-		} else if (placex.equals("TR")){
+		} else if (place1.equals("TR")) {
 			TR = "X";
-		} else if (placex.equals("ML")){
+		} else if (place1.equals("ML")) {
 			ML = "X";
-		} else if (placex.equals("MM")){
+		} else if (place1.equals("MM")) {
 			MM = "X";
-		} else if (placex.equals("MR")){
+		} else if (place1.equals("MR")) {
 			MR = "X";
-		} else if (placex.equals("BL")){
+		} else if (place1.equals("BL")) {
 			BL = "X";
-		} else if (placex.equals("BM")){
+		} else if (place1.equals("BM")) {
 			BM = "X";
-		} else if (placex.equals("BR")){
+		} else if (place1.equals("BR")) {
 			BR = "X";
 		}
-		
+
 		System.out.print(TL);
 		System.out.print(TM);
 		System.out.println(TR);
@@ -58,15 +69,15 @@ public class NewerTicTacToe {
 		System.out.print(BL);
 		System.out.print(BM);
 		System.out.println(BR);
-		
+
 		if (TL.equals("X") || TR.equals("X") || BL.equals("X") || BR.equals("X")) {
 			MM = "O";
 		} else if (TM.equals("X") || ML.equals("X") || MR.equals("X") || BM.equals("X")) {
 			MM = "O";
 		} else if (MM.equals("X")) {
-			BL = "X";
+			BL = "O";
 		}
-		
+
 		System.out.println("---");
 		System.out.print(TL);
 		System.out.print(TM);
@@ -77,12 +88,6 @@ public class NewerTicTacToe {
 		System.out.print(BL);
 		System.out.print(BM);
 		System.out.println(BR);
-		
-		
-		
-	}
 
-		
-		
-			}	
-	
+	}
+}
