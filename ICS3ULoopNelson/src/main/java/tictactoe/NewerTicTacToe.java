@@ -18,14 +18,17 @@ public class NewerTicTacToe {
 
 	public static void main(String[] args) {
 		NewerTicTacToe nttt = new NewerTicTacToe();
+		String answer;
 
+	do {
+		
 		nttt.doit();
 
 		nttt.cft();
 
-		nttt.doit();
+	do {	
+			nttt.doit();
 
-		nttt.pwc();
 		if (nttt.pwc() == false) {
 			if (nttt.owc() == false) {
 				if (nttt.swc() == false) {
@@ -33,54 +36,14 @@ public class NewerTicTacToe {
 				}
 			}
 		}
-		nttt.wc();
-		nttt.dc();
+	} while (nttt.wc() == false && nttt.dc() == false);
 
-		nttt.doit();
-
-		nttt.pwc();
-		if (nttt.pwc() == false) {
-			nttt.owc();
-			if (nttt.owc() == false) {
-				nttt.swc();
-				if (nttt.swc() == false) {
-					nttt.rc();
-				}
-			}
-		}
-		nttt.wc();
-		nttt.dc();
-
-		nttt.doit();
-
-		nttt.pwc();
-		if (nttt.pwc() == false) {
-			nttt.owc();
-			if (nttt.owc() == false) {
-				nttt.swc();
-				if (nttt.swc() == false) {
-					nttt.rc();
-				}
-			}
-		}
-		nttt.wc();
-		nttt.dc();
-
-		nttt.doit();
-
-		nttt.pwc();
-		if (nttt.pwc() == false) {
-			nttt.owc();
-			if (nttt.owc() == false) {
-				nttt.swc();
-				if (nttt.swc() == false) {
-					nttt.rc();
-				}
-			}
-		}
-		nttt.wc();
-		nttt.dc();
-
+	nttt.cb();
+	
+	System.out.println("Would you like to play again? Please capitalize your answer");
+	answer = keyboard.nextLine();
+	} while (answer.equals("Yes"));
+	
 	}
 
 	public void doit() {
@@ -129,19 +92,6 @@ public class NewerTicTacToe {
 		} else if (MM.equals("X")) {
 			BL = "O";
 		}
-
-		System.out.println("---------");
-		System.out.print(TL + " | ");
-		System.out.print(TM + " | ");
-		System.out.println(TR);
-		System.out.println("---------");
-		System.out.print(ML + " | ");
-		System.out.print(MM + " | ");
-		System.out.println(MR);
-		System.out.println("---------");
-		System.out.print(BL + " | ");
-		System.out.print(BM + " | ");
-		System.out.println(BR);
 
 	}
 
@@ -388,52 +338,71 @@ public class NewerTicTacToe {
 		return false;
 	}
 
-	public void wc() {
+	public boolean wc() {
 		if (TL.equals("X") && TM.equals("X") && TR.equals("X")) {
 			System.out.println("You have won!");
+			return true;
 		} else if (ML.equals("X") && MM.equals("X") && MR.equals("X")) {
 			System.out.println("You have won!");
+			return true;
 		} else if (BL.equals("X") && BM.equals("X") && BR.equals("X")) {
 			System.out.println("You have won!");
+			return true;
 
 		} else if (TL.equals("X") && ML.equals("X") && BL.equals("X")) {
 			System.out.println("You have won!");
+			return true;
 		} else if (TM.equals("X") && MM.equals("X") && BM.equals("X")) {
 			System.out.println("You have won!");
+			return true;
 		} else if (TR.equals("X") && MR.equals("X") && BR.equals("X")) {
 			System.out.println("You have won!");
+			return true;
 
 		} else if (TL.equals("X") && MM.equals("X") && BR.equals("X")) {
 			System.out.println("You have won!");
+			return true;
 		} else if (BL.equals("X") && MM.equals("X") && TR.equals("X")) {
 			System.out.println("You have won!");
+			return true;
 
 		} else if (TL.equals("O") && TM.equals("O") && TR.equals("O")) {
 			System.out.println("Computer has won!");
+			return true;
 		} else if (ML.equals("O") && MM.equals("O") && MR.equals("O")) {
 			System.out.println("Computer has won!");
+			return true;
 		} else if (BL.equals("O") && BM.equals("O") && BR.equals("O")) {
 			System.out.println("Computer has won!");
+			return true;
 
 		} else if (TL.equals("O") && ML.equals("O") && BL.equals("O")) {
 			System.out.println("Computer has won!");
+			return true;
 		} else if (TM.equals("O") && MM.equals("O") && BM.equals("O")) {
 			System.out.println("Computer has won!");
+			return true;
 		} else if (TR.equals("O") && MR.equals("O") && BR.equals("O")) {
 			System.out.println("Computer has won!");
+			return true;
 
 		} else if (TL.equals("O") && MM.equals("O") && BR.equals("O")) {
 			System.out.println("Computer has won!");
+			return true;
 		} else if (BL.equals("O") && MM.equals("O") && TR.equals("O")) {
 			System.out.println("Computer has won!");
+			return true;
 		}
+		return false;
 	}
 
-	public void dc() {
+	public boolean dc() {
 		if (!TL.equals(" ") && !TM.equals(" ") && !TR.equals(" ") && !ML.equals(" ") && !MM.equals(" ")
 				&& !MR.equals(" ") && !BL.equals(" ") && !BM.equals(" ") && !BR.equals(" ")) {
 			System.out.println("It's a draw! Good game!");
+			return true;
 		}
+		return false;
 	}
 
 	public boolean rc() {
@@ -462,5 +431,19 @@ public class NewerTicTacToe {
 		}
 
 		return false;
+	}
+	
+	public void cb() {
+		System.out.print(TL + " | ");
+		System.out.print(TM + " | ");
+		System.out.println(TR);
+		System.out.println("---------");
+		System.out.print(ML + " | ");
+		System.out.print(MM + " | ");
+		System.out.println(MR);
+		System.out.println("---------");
+		System.out.print(BL + " | ");
+		System.out.print(BM + " | ");
+		System.out.println(BR);
 	}
 }
