@@ -18,47 +18,69 @@ public class NewerTicTacToe {
 
 	public static void main(String[] args) {
 		NewerTicTacToe nttt = new NewerTicTacToe();
-		
+
 		nttt.doit();
-		
+
 		nttt.cft();
-		
+
 		nttt.doit();
-		
+
 		nttt.pwc();
-		nttt.owc();
-		nttt.swc();
-		nttt.rc();
+		if (nttt.pwc() == false) {
+			if (nttt.owc() == false) {
+				if (nttt.swc() == false) {
+					nttt.rc();
+				}
+			}
+		}
 		nttt.wc();
 		nttt.dc();
-		
+
 		nttt.doit();
-		
+
 		nttt.pwc();
-		nttt.owc();
-		nttt.swc();
-		nttt.rc();
+		if (nttt.pwc() == false) {
+			nttt.owc();
+			if (nttt.owc() == false) {
+				nttt.swc();
+				if (nttt.swc() == false) {
+					nttt.rc();
+				}
+			}
+		}
 		nttt.wc();
 		nttt.dc();
-		
+
 		nttt.doit();
-		
+
 		nttt.pwc();
-		nttt.owc();
-		nttt.swc();
-		nttt.rc();
+		if (nttt.pwc() == false) {
+			nttt.owc();
+			if (nttt.owc() == false) {
+				nttt.swc();
+				if (nttt.swc() == false) {
+					nttt.rc();
+				}
+			}
+		}
 		nttt.wc();
 		nttt.dc();
-		
+
 		nttt.doit();
-		
+
 		nttt.pwc();
-		nttt.owc();
-		nttt.swc();
-		nttt.rc();
+		if (nttt.pwc() == false) {
+			nttt.owc();
+			if (nttt.owc() == false) {
+				nttt.swc();
+				if (nttt.swc() == false) {
+					nttt.rc();
+				}
+			}
+		}
 		nttt.wc();
 		nttt.dc();
-		
+
 	}
 
 	public void doit() {
@@ -97,21 +119,10 @@ public class NewerTicTacToe {
 			BR = "X";
 		}
 
-		System.out.print(TL + " | ");
-		System.out.print(TM + " | ");
-		System.out.println(TR);
-		System.out.println("---------");
-		System.out.print(ML + " | ");
-		System.out.print(MM + " | ");
-		System.out.println(MR);
-		System.out.println("---------");
-		System.out.print(BL + " | ");
-		System.out.print(BM + " | ");
-		System.out.println(BR);
 	}
 
-	public void cft() {	
-	if (TL.equals("X") || TR.equals("X") || BL.equals("X") || BR.equals("X")) {
+	public void cft() {
+		if (TL.equals("X") || TR.equals("X") || BL.equals("X") || BR.equals("X")) {
 			MM = "O";
 		} else if (TM.equals("X") || ML.equals("X") || MR.equals("X") || BM.equals("X")) {
 			MM = "O";
@@ -133,174 +144,250 @@ public class NewerTicTacToe {
 		System.out.println(BR);
 
 	}
-	
-	public void pwc() {
+
+	public boolean pwc() {
 		if (TL.equals("O") && ML.equals("O") && BL.equals(" ")) {
 			BL = "O";
+			return true;
 		} else if (TL.equals(" ") && ML.equals("O") && BL.equals("O")) {
 			TL = "O";
+			return true;
 		} else if (TL.equals("O") && ML.equals(" ") && BL.equals("O")) {
 			ML = "O";
+			return true;
 
 		} else if (TM.equals("O") && MM.equals("O") && BM.equals(" ")) {
 			BM = "O";
+			return true;
 		} else if (TM.equals(" ") && MM.equals("O") && BM.equals("O")) {
 			TM = "O";
+			return true;
 		} else if (TM.equals("O") && MM.equals(" ") && BM.equals("O")) {
 			MM = "O";
+			return true;
 
 		} else if (TR.equals("O") && MR.equals("O") && BR.equals(" ")) {
 			BR = "O";
+			return true;
 		} else if (TR.equals(" ") && MR.equals("O") && BR.equals("O")) {
 			TR = "O";
+			return true;
 		} else if (TR.equals("O") && MR.equals(" ") && BR.equals("O")) {
 			MR = "O";
+			return true;
 
 		} else if (TL.equals("O") && TM.equals("O") && TR.equals(" ")) {
 			TR = "O";
+			return true;
 		} else if (TL.equals(" ") && TM.equals("O") && TR.equals("O")) {
 			TL = "O";
+			return true;
 		} else if (TL.equals("O") && TM.equals(" ") && TR.equals("O")) {
 			TM = "O";
+			return true;
 
 		} else if (ML.equals("O") && MM.equals("O") && MR.equals(" ")) {
 			MR = "O";
+			return true;
 		} else if (ML.equals(" ") && MM.equals("O") && MR.equals("O")) {
 			ML = "O";
+			return true;
 		} else if (ML.equals("O") && MM.equals(" ") && MR.equals("O")) {
 			MM = "O";
+			return true;
 
 		} else if (BL.equals("O") && BM.equals("O") && BR.equals(" ")) {
 			BR = "O";
+			return true;
 		} else if (BL.equals(" ") && BM.equals("O") && BR.equals("O")) {
 			BL = "O";
+			return true;
 		} else if (BL.equals("O") && BM.equals(" ") && BR.equals("O")) {
 			BM = "O";
+			return true;
 
 		} else if (TL.equals("O") && MM.equals("O") && BR.equals(" ")) {
 			BR = "O";
+			return true;
 		} else if (TL.equals(" ") && MM.equals("O") && BR.equals("O")) {
 			TL = "O";
+			return true;
 		} else if (TL.equals("O") && MM.equals(" ") && BR.equals("O")) {
 			MM = "O";
+			return true;
 
 		} else if (BL.equals("O") && MM.equals("O") && TR.equals(" ")) {
 			TR = "O";
+			return true;
 		} else if (BL.equals(" ") && MM.equals("O") && TR.equals("O")) {
 			BL = "O";
+			return true;
 		} else if (BL.equals("O") && MM.equals(" ") && TR.equals("O")) {
 			MM = "O";
+			return true;
 		}
+
+		return false;
 	}
-	
-	public void owc() {
+
+	public boolean owc() {
 		if (TL.equals("X") && ML.equals("X") && BL.equals(" ")) {
 			BL = "O";
+			return true;
 		} else if (TL.equals(" ") && ML.equals("X") && BL.equals("X")) {
 			TL = "O";
+			return true;
 		} else if (TL.equals("X") && ML.equals(" ") && BL.equals("X")) {
 			ML = "O";
-		
+			return true;
+
 		} else if (TM.equals("X") && MM.equals("X") && BM.equals(" ")) {
 			BM = "O";
+			return true;
 		} else if (TM.equals(" ") && MM.equals("X") && BM.equals("X")) {
 			TM = "O";
+			return true;
 		} else if (TM.equals("X") && MM.equals(" ") && BM.equals("X")) {
 			MM = "O";
-	
+			return true;
+
 		} else if (TR.equals("X") && MR.equals("X") && BR.equals(" ")) {
 			BR = "O";
+			return true;
 		} else if (TR.equals(" ") && MR.equals("X") && BR.equals("X")) {
 			TR = "O";
+			return true;
 		} else if (TR.equals("X") && MR.equals(" ") && BR.equals("X")) {
 			MR = "O";
-	
-		
-		
+			return true;
+
 		} else if (TL.equals("X") && TM.equals("X") && TR.equals(" ")) {
 			TR = "O";
+			return true;
 		} else if (TL.equals(" ") && TM.equals("X") && TR.equals("X")) {
 			TL = "O";
+			return true;
 		} else if (TL.equals("X") && TM.equals(" ") && TR.equals("X")) {
 			TM = "O";
-		
+			return true;
+
 		} else if (ML.equals("X") && MM.equals("X") && MR.equals(" ")) {
 			MR = "O";
+			return true;
 		} else if (ML.equals(" ") && MM.equals("X") && MR.equals("X")) {
 			ML = "O";
+			return true;
 		} else if (ML.equals("X") && MM.equals(" ") && MR.equals("X")) {
 			MM = "O";
-	
+			return true;
+
 		} else if (BL.equals("X") && BM.equals("X") && BR.equals(" ")) {
 			BR = "O";
+			return true;
 		} else if (BL.equals(" ") && BM.equals("X") && BR.equals("X")) {
 			BL = "O";
+			return true;
 		} else if (BL.equals("X") && BM.equals(" ") && BR.equals("X")) {
 			BM = "O";
-		
-		
-		
+			return true;
+
 		} else if (TL.equals("X") && MM.equals("X") && BR.equals(" ")) {
 			BR = "O";
+			return true;
 		} else if (TL.equals(" ") && MM.equals("X") && BR.equals("X")) {
 			TL = "O";
+			return true;
 		} else if (TL.equals("X") && MM.equals(" ") && BR.equals("X")) {
 			MM = "O";
-		
+			return true;
+
 		} else if (BL.equals("X") && MM.equals("X") && TR.equals(" ")) {
 			TR = "O";
+			return true;
 		} else if (BL.equals(" ") && MM.equals("X") && TR.equals("X")) {
 			BL = "O";
+			return true;
 		} else if (BL.equals("X") && MM.equals(" ") && TR.equals("X")) {
 			MM = "O";
+			return true;
 		}
+
+		return false;
 	}
-	
-	public void swc() {
-		if (TM.equals("X") && BL.equals("X") && TL.equals(" ")) {
+
+	public boolean swc() {
+		if (TM.equals("X") && BL.equals("X") && TL.equals(" ") && TR.equals(" ") && ML.equals(" ")) {
 			TL = "O";
+			return true;
 
-		} else if (TL.equals("X") && MR.equals("X") && TR.equals(" ")) {
+		} else if (TL.equals("X") && MR.equals("X") && TR.equals(" ") && TM.equals(" ") && BR.equals(" ")) {
 			TR = "O";
+			return true;
 
-		} else if (TR.equals("X") && BM.equals("X") && BR.equals(" ")) {
+		} else if (TR.equals("X") && BM.equals("X") && BR.equals(" ") && MR.equals(" ") && BL.equals(" ")) {
 			BR = "O";
+			return true;
 
-		} else if (ML.equals("X") && BR.equals("X") && BL.equals(" ")) {
+		} else if (ML.equals("X") && BR.equals("X") && BL.equals(" ") && TL.equals(" ") && BM.equals(" ")) {
 			BL = "O";
+			return true;
 
-		} else if (BL.equals("X") && TR.equals("X") && MR.equals(" ")) {
+		} else if (BL.equals("X") && TR.equals("X") && MR.equals(" ") && BM.equals(" ") && BR.equals(" ")) {
 			MR = "O";
+			return true;
 
-		} else if (TL.equals("X") && ML.equals(" ") && BR.equals("X")) {
+		} else if (TL.equals("X") && ML.equals(" ") && BR.equals("X") && BM.equals(" ") && BL.equals(" ")) {
 			ML = "O";
+			return true;
 
-		} else if (BL.equals("X") && MR.equals("X") && BR.equals(" ")) {
+		} else if (BL.equals("X") && MR.equals("X") && BR.equals(" ") && BM.equals(" ") && TR.equals(" ")) {
 			BR = "O";
+			return true;
 
-		} else if (TL.equals("X") && BM.equals("X") && BL.equals(" ")) {
+		} else if (TL.equals("X") && BM.equals("X") && BL.equals(" ") && ML.equals(" ") && BR.equals(" ")) {
 			BL = "O";
+			return true;
 
-		} else if (ML.equals("X") && TR.equals("X") && TL.equals(" ")) {
+		} else if (ML.equals("X") && TR.equals("X") && TL.equals(" ") && TM.equals(" ") && BL.equals(" ")) {
 			TL = "O";
+			return true;
 
-		} else if (TM.equals("X") && BR.equals("X") && TR.equals(" ")) {
+		} else if (TM.equals("X") && BR.equals("X") && TR.equals(" ") && TL.equals(" ") && MR.equals(" ")) {
 			TR = "O";
+			return true;
 
-		} else if (ML.equals("X") && TM.equals("X") && TL.equals(" ")) {
+		} else if (ML.equals("X") && TM.equals("X") && TL.equals(" ") && BL.equals(" ") && TR.equals(" ")) {
 			TL = "O";
+			return true;
 
-		} else if (TM.equals("X") && MR.equals("X") && TR.equals(" ")) {
+		} else if (TM.equals("X") && MR.equals("X") && TR.equals(" ") && TL.equals(" ") && BR.equals(" ")) {
 			TR = "O";
+			return true;
 
-		} else if (BM.equals("X") && MR.equals("X") && BR.equals(" ")) {
+		} else if (BM.equals("X") && MR.equals("X") && BR.equals(" ") && BL.equals(" ") && TR.equals(" ")) {
 			BR = "O";
+			return true;
 
-		} else if (ML.equals("X") && BM.equals("X") && BL.equals(" ")) {
+		} else if (ML.equals("X") && BM.equals("X") && BL.equals(" ") && TL.equals(" ") && BR.equals(" ")) {
 			BL = "O";
+			return true;
+
+		} else if (BL.equals("X") && TR.equals("X") && ML.equals(" ") && TL.equals(" ") && TM.equals(" ")) {
+			ML = "O";
+			return true;
+
+		} else if (TL.equals("X") && BR.equals("X") && MR.equals(" ") && TM.equals(" ") && TR.equals(" ")) {
+			MR = "O";
+			return true;
+
+		} else if (TL.equals(" ") && MM.equals("X") && TR.equals("X") && TM.equals(" ") && ML.equals(" ")) {
+			TL = "O";
+			return true;
 		}
+
+		return false;
 	}
-	
+
 	public void wc() {
 		if (TL.equals("X") && TM.equals("X") && TR.equals("X")) {
 			System.out.println("You have won!");
@@ -341,19 +428,39 @@ public class NewerTicTacToe {
 			System.out.println("Computer has won!");
 		}
 	}
-	
+
 	public void dc() {
 		if (!TL.equals(" ") && !TM.equals(" ") && !TR.equals(" ") && !ML.equals(" ") && !MM.equals(" ")
 				&& !MR.equals(" ") && !BL.equals(" ") && !BM.equals(" ") && !BR.equals(" ")) {
 			System.out.println("It's a draw! Good game!");
 		}
 	}
-	
-	public void rc() {
+
+	public boolean rc() {
 		if (ML.equals("X") && MM.equals("O") && MR.equals("X") && TL.equals(" ")) {
 			TL = "O";
+			return true;
 		} else if (TM.equals("X") && MM.equals("O") && BM.equals("X") && TR.equals(" ")) {
 			TR = "O";
+			return true;
+		} else if (TL.equals("O") && TM.equals(" ") && TR.equals("X") && ML.equals("X") && MM.equals("X")
+				&& MR.equals("O") && BL.equals("O") && BM.equals(" ") && BR.equals("X")) {
+			TM = "O";
+			return true;
+		} else if (TL.equals("O") && TM.equals("X") && TR.equals("O") && ML.equals(" ") && MM.equals("X")
+				&& MR.equals(" ") && BL.equals("X") && BM.equals("O") && BR.equals("X")) {
+			MR = "O";
+			return true;
+		} else if (TL.equals("X") && TM.equals("O") && TR.equals("X") && ML.equals(" ") && MM.equals("X")
+				&& MR.equals(" ") && BL.equals("O") && BM.equals("X") && BR.equals("O")) {
+			ML = "O";
+			return true;
+		} else if (TL.equals("X") && TM.equals(" ") && TR.equals("O") && ML.equals("O") && MM.equals("X")
+				&& MR.equals("X") && BL.equals("X") && BM.equals(" ") && BR.equals("O")) {
+			BM = "O";
+			return true;
 		}
+
+		return false;
 	}
 }
