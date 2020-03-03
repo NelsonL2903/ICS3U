@@ -1,4 +1,4 @@
-package tictactoe;
+package ccatictactoe;
 
 import java.util.Scanner;
 
@@ -20,30 +20,30 @@ public class NewerTicTacToe {
 		NewerTicTacToe nttt = new NewerTicTacToe();
 		String answer;
 
-	do {
-		
-		nttt.doit();
+		do {
 
-		nttt.cft();
-
-	do {	
 			nttt.doit();
 
-		if (nttt.pwc() == false) {
-			if (nttt.owc() == false) {
-				if (nttt.swc() == false) {
-					nttt.rc();
-				}
-			}
-		}
-	} while (nttt.wc() == false && nttt.dc() == false);
+			nttt.cft();
 
-	nttt.cb();
-	
-	System.out.println("Would you like to play again? Please capitalize your answer");
-	answer = keyboard.nextLine();
-	} while (answer.equals("Yes"));
-	
+			do {
+				nttt.doit();
+
+				if (nttt.pwc() == false) {
+					if (nttt.owc() == false) {
+						if (nttt.swc() == false) {
+							nttt.rc();
+						}
+					}
+				}
+			} while (nttt.wc() == false && nttt.dc() == false);
+
+			nttt.cb();
+
+			System.out.println("Would you like to play again? Please capitalize your answer");
+			answer = keyboard.nextLine();
+		} while (answer.equals("Yes"));
+
 	}
 
 	public void doit() {
@@ -432,7 +432,7 @@ public class NewerTicTacToe {
 
 		return false;
 	}
-	
+
 	public void cb() {
 		System.out.print(TL + " | ");
 		System.out.print(TM + " | ");
