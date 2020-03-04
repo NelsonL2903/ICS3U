@@ -21,7 +21,7 @@ public class NewerTicTacToe {
 		String answer;
 
 		do {
-
+			nttt.cb();
 			nttt.doit();
 
 			nttt.cft();
@@ -433,7 +433,7 @@ public class NewerTicTacToe {
 		return false;
 	}
 
-	public void cb() {
+	public void pb() {
 		System.out.print(TL + " | ");
 		System.out.print(TM + " | ");
 		System.out.println(TR);
@@ -445,5 +445,17 @@ public class NewerTicTacToe {
 		System.out.print(BL + " | ");
 		System.out.print(BM + " | ");
 		System.out.println(BR);
+	}
+
+	public void cb() {
+		TL = " ";
+		TM = " ";
+		TR = " ";
+		ML = " ";
+		MM = " ";
+		MR = " ";
+		BL = " ";
+		BM = " ";
+		BR = " ";
 	}
 }
