@@ -22,31 +22,34 @@ public class NewerTicTacToe {
 
 		do {
 			nttt.cb();
-			nttt.doit();
+			nttt.pt();
 
 			nttt.cft();
 
 			do {
-				nttt.doit();
+				nttt.pt();
 
 				if (nttt.pwc() == false) {
 					if (nttt.owc() == false) {
 						if (nttt.swc() == false) {
-							nttt.rc();
+							if (nttt.rc() == false) {
+								nttt.fc();
+							}
 						}
 					}
 				}
 			} while (nttt.wc() == false && nttt.dc() == false);
 
-			nttt.cb();
+			nttt.pb();
 
-			System.out.println("Would you like to play again? Please capitalize your answer");
+			System.out.println("Would you like to play again?");
 			answer = keyboard.nextLine();
-		} while (answer.equals("Yes"));
+		} while (answer.equals("Yes") || answer.equals("yes") || answer.equals("YES") || answer.equals("y")
+				|| answer.equals("Y"));
 
 	}
 
-	public void doit() {
+	public void pt() {
 
 		System.out.println("    ");
 		System.out.print(TL + " | ");
@@ -60,27 +63,40 @@ public class NewerTicTacToe {
 		System.out.print(BL + " | ");
 		System.out.print(BM + " | ");
 		System.out.println(BR);
+		boolean uc = false;
 		System.out.println("Where would you like to play? For example: Top Left = TL");
-		String place1 = keyboard.nextLine();
-		if (place1.equals("TL")) {
-			TL = "X";
-		} else if (place1.equals("TM")) {
-			TM = "X";
-		} else if (place1.equals("TR")) {
-			TR = "X";
-		} else if (place1.equals("ML")) {
-			ML = "X";
-		} else if (place1.equals("MM")) {
-			MM = "X";
-		} else if (place1.equals("MR")) {
-			MR = "X";
-		} else if (place1.equals("BL")) {
-			BL = "X";
-		} else if (place1.equals("BM")) {
-			BM = "X";
-		} else if (place1.equals("BR")) {
-			BR = "X";
-		}
+		do {
+			System.out.println("Please choose a blank square, or make sure your format is correct");
+			String place1 = keyboard.nextLine();
+			if (place1.equals("TL") && TL.equals(" ")) {
+				TL = "X";
+				uc = true;
+			} else if (place1.equals("TM") && TM.equals(" ")) {
+				TM = "X";
+				uc = true;
+			} else if (place1.equals("TR") && TR.equals(" ")) {
+				TR = "X";
+				uc = true;
+			} else if (place1.equals("ML") && ML.equals(" ")) {
+				ML = "X";
+				uc = true;
+			} else if (place1.equals("MM") && MM.equals(" ")) {
+				MM = "X";
+				uc = true;
+			} else if (place1.equals("MR") && MR.equals(" ")) {
+				MR = "X";
+				uc = true;
+			} else if (place1.equals("BL") && BL.equals(" ")) {
+				BL = "X";
+				uc = true;
+			} else if (place1.equals("BM") && BM.equals(" ")) {
+				BM = "X";
+				uc = true;
+			} else if (place1.equals("BR") && BR.equals(" ")) {
+				BR = "X";
+				uc = true;
+			}
+		} while (uc == false);
 
 	}
 
@@ -458,4 +474,37 @@ public class NewerTicTacToe {
 		BM = " ";
 		BR = " ";
 	}
+
+	public boolean fc() {
+		if (TL.equals(" ")) {
+			TL = "O";
+			return true;
+		} else if (TM.equals(" ")) {
+			TM = "O";
+			return true;
+		} else if (TR.equals(" ")) {
+			TR = "O";
+			return true;
+		} else if (ML.equals(" ")) {
+			ML = "O";
+			return true;
+		} else if (MM.equals(" ")) {
+			MM = "O";
+			return true;
+		} else if (MR.equals(" ")) {
+			MR = "O";
+			return true;
+		} else if (BL.equals(" ")) {
+			BL = "O";
+			return true;
+		} else if (BM.equals(" ")) {
+			BM = "O";
+			return true;
+		} else if (BR.equals(" ")) {
+			BR = "O";
+			return true;
+		}
+		return false;
+	}
+
 }
