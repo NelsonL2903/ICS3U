@@ -58,13 +58,13 @@ public class ArrayTTTCheck {
 			System.out.println("Where would you like to play? Please enter the column number, 1, 2, or 3");
 			Random answerR = new Random();
 			int lowR = 0;
-			int highR = 2;
+			int highR = 3;
 			int row;
 			row = answerR.nextInt(highR - lowR) + lowR;
 			System.out.println("Please enter the row number, 1, 2 or 3");
 			Random answerC = new Random();
 			int lowC = 0;
-			int highC = 2;
+			int highC = 3;
 			int column;
 			column = answerC.nextInt(highC - lowC) + lowC;
 			if (board[row][column] == 0) {
@@ -75,7 +75,7 @@ public class ArrayTTTCheck {
 				cc = false;
 			}
 
-		} while (cc = false);
+		} while (cc == false);
 
 	}
 
@@ -404,26 +404,26 @@ public class ArrayTTTCheck {
 
 	public boolean rc() {
 		if (board[1][0] == 1 && board[1][1] == 2 && board[1][2] == 1 && board[0][0] == 0) {
-			board[0][0] = 1;
+			board[0][0] = 2;
 			return true;
 		} else if (board[0][1] == 1 && board[1][1] == 2 && board[2][1] == 1 && board[0][2] == 0) {
-			board[0][2] = 1;
+			board[0][2] = 2;
 			return true;
 		} else if (board[0][0] == 2 && board[0][1] == 0 && board[0][2] == 1 && board[1][0] == 1 && board[1][1] == 1
 				&& board[1][2] == 2 && board[2][0] == 2 && board[2][1] == 0 && board[2][2] == 1) {
-			board[0][1] = 1;
+			board[0][1] = 2;
 			return true;
 		} else if (board[0][0] == 2 && board[0][1] == 1 && board[0][2] == 2 && board[1][0] == 0 && board[1][1] == 1
 				&& board[1][2] == 0 && board[2][0] == 1 && board[2][1] == 2 && board[2][2] == 1) {
-			board[1][2] = 1;
+			board[1][2] = 2;
 			return true;
 		} else if (board[0][0] == 1 && board[0][1] == 2 && board[0][2] == 1 && board[1][0] == 0 && board[1][1] == 1
 				&& board[1][2] == 0 && board[2][0] == 2 && board[2][1] == 1 && board[2][2] == 2) {
-			board[1][0] = 1;
+			board[1][0] = 2;
 			return true;
 		} else if (board[0][0] == 1 && board[0][1] == 0 && board[0][2] == 2 && board[1][0] == 2 && board[1][1] == 1
 				&& board[1][2] == 1 && board[2][0] == 1 && board[2][1] == 0 && board[2][2] == 2) {
-			board[2][1] = 1;
+			board[2][1] = 2;
 			return true;
 		}
 		return false;
