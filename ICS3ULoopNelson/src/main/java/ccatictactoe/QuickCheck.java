@@ -49,7 +49,7 @@ public class QuickCheck {
 		do {
 			Random answer = new Random();
 			int low = 1;
-			int high = 9;
+			int high = 10;
 			int rand;
 			rand = answer.nextInt(high - low) + low;
 			if (rand == 1 && TL.equals(" ")) {

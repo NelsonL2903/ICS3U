@@ -16,6 +16,7 @@ public class TicTacToeCheck {
 	String BR = " ";
 
 	static Scanner keyboard = new Scanner(System.in);
+	Random answer = new Random();
 
 	public static void main(String[] args) {
 		TicTacToeCheck tttc = new TicTacToeCheck();
@@ -65,9 +66,9 @@ public class TicTacToeCheck {
 		System.out.println("Where would you like to play? For example: Top Left = TL");
 		do {
 			System.out.println("Please choose a blank square, or make sure your format is correct");
-			Random answer = new Random();
+
 			int low = 1;
-			int high = 9;
+			int high = 10;
 			int rand;
 			rand = answer.nextInt(high - low) + low;
 			if (rand == 1 && TL.equals(" ")) {
@@ -98,7 +99,9 @@ public class TicTacToeCheck {
 				BR = "X";
 				uc = true;
 			}
-		} while (uc = false);
+			System.out.println("Rand = " + rand);
+			System.out.println("uc = " + uc);
+		} while (uc == false);
 
 	}
 
