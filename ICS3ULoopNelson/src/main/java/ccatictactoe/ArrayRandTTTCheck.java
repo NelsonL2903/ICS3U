@@ -3,13 +3,13 @@ package ccatictactoe;
 import java.util.Random;
 import java.util.Scanner;
 
-public class ArrayTTTCheck {
+public class ArrayRandTTTCheck {
 
 	static Scanner keyboard = new Scanner(System.in);
 	int[][] board = new int[3][3];
 
 	public static void main(String[] args) {
-		ArrayTTTCheck atttc = new ArrayTTTCheck();
+		ArrayRandTTTCheck atttc = new ArrayRandTTTCheck();
 
 		do {
 			atttc.cb();
@@ -36,8 +36,6 @@ public class ArrayTTTCheck {
 
 			atttc.printboard();
 
-			System.out.println("Would you like to play again?");
-
 		} while (true);
 
 	}
@@ -55,13 +53,11 @@ public class ArrayTTTCheck {
 	public void pt() {
 		boolean cc = false;
 		do {
-			System.out.println("Where would you like to play? Please enter the column number, 1, 2, or 3");
 			Random answerR = new Random();
 			int lowR = 0;
 			int highR = 3;
 			int row;
 			row = answerR.nextInt(highR - lowR) + lowR;
-			System.out.println("Please enter the row number, 1, 2 or 3");
 			Random answerC = new Random();
 			int lowC = 0;
 			int highC = 3;
@@ -71,7 +67,6 @@ public class ArrayTTTCheck {
 				board[row][column] = 1;
 				cc = true;
 			} else {
-				System.out.println("Please input another coordinate, and make sure it is blank");
 				cc = false;
 			}
 

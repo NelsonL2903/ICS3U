@@ -3,14 +3,14 @@ package ccatictactoe;
 import java.util.Random;
 import java.util.Scanner;
 
-public class ArrayQuickCheck {
+public class ArrayRandQuickCheck {
 
 	static Scanner keyboard = new Scanner(System.in);
 	int[][] board = new int[3][3];
 
 	public static void main(String[] args) {
 
-		ArrayQuickCheck aqc = new ArrayQuickCheck();
+		ArrayRandQuickCheck aqc = new ArrayRandQuickCheck();
 
 		do {
 			aqc.cb();
