@@ -47,7 +47,6 @@ public class EveryPossibilityEver {
 	int[][] board;
 
 	public EveryPossibilityEver(int[][] board) {
-		this.board = board;
 
 	}
 
