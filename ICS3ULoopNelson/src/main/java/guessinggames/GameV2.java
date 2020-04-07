@@ -11,7 +11,7 @@ public class GameV2 {
 
 		Random answer = new Random();
 		int low = 1;
-		int high = 10;
+		int high = 11;
 		int rand;
 		int guess;
 		int attempts = 1;
