@@ -52,13 +52,13 @@ public class LinearSearch {
 		for (int i = 0; i < array.length; ++i) {
 			if (searchInt == array[i]) {
 				index = i;
+				break;
 			} else {
 				index = -1;
-
 			}
-			return index;
-		}
 
+		}
+		return index;
 		// loop through array
 		// search for searchInt
 
