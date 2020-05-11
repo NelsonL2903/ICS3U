@@ -12,8 +12,10 @@ public class ArrayTicTacToe {
 		ArrayTicTacToe gameboard = new ArrayTicTacToe();
 		UserInput pt = new UserInput();
 		String answer;
+		int attempt = 1;
 
 		do {
+			System.out.println("Attempts: " + attempt);
 			gameboard.cb();
 
 			gameboard.printboard();
@@ -35,6 +37,7 @@ public class ArrayTicTacToe {
 					}
 				}
 			} while (gameboard.wc() == false && gameboard.dc() == false);
+			attempt = attempt + 1;
 
 			gameboard.printboard();
 
