@@ -533,8 +533,10 @@ public class GUITicTacToe extends JPanel implements MouseListener {
 	}
 
 	public void mouseClicked(MouseEvent e) {
-		board[0][0] = 1;
-		repaint();
+		if (e.getX() >= 335 && e.getX() <= 415 && e.getY() >= 5 && e.getY() <= 95) {
+			board[0][0] = 1;
+			repaint();
+		}
 	}
 
 }
