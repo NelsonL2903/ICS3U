@@ -3,7 +3,7 @@ package ccatictactoe;
 import java.util.Random;
 import java.util.Scanner;
 
-public class QuickCheck {
+public class RandQuickCheck {
 
 	String TL = " ";
 	String TM = " ";
@@ -18,26 +18,26 @@ public class QuickCheck {
 	static Scanner keyboard = new Scanner(System.in);
 
 	public static void main(String[] args) {
-		QuickCheck qc = new QuickCheck();
+		RandQuickCheck rqc = new RandQuickCheck();
 		do {
-			qc.cb();
-			qc.pt();
+			rqc.cb();
+			rqc.pt();
 
-			qc.cft();
+			rqc.cft();
 
 			do {
-				qc.pt();
+				rqc.pt();
 
-				if (qc.pwc() == false) {
-					if (qc.owc() == false) {
-						if (qc.swc() == false) {
-							if (qc.rc() == false) {
-								qc.fc();
+				if (rqc.pwc() == false) {
+					if (rqc.owc() == false) {
+						if (rqc.swc() == false) {
+							if (rqc.rc() == false) {
+								rqc.fc();
 							}
 						}
 					}
 				}
-			} while (qc.wc() == false && qc.dc() == false);
+			} while (rqc.wc() == false && rqc.dc() == false);
 
 		} while (true);
 

@@ -43,7 +43,6 @@ public class TicTacToeCheck {
 
 			tttc.pb();
 
-			System.out.println("Would you like to play again?");
 		} while (true);
 
 	}
@@ -63,9 +62,7 @@ public class TicTacToeCheck {
 		System.out.print(BM + " | ");
 		System.out.println(BR);
 		boolean uc = false;
-		System.out.println("Where would you like to play? For example: Top Left = TL");
 		do {
-			System.out.println("Please choose a blank square, or make sure your format is correct");
 
 			int low = 1;
 			int high = 10;
@@ -99,8 +96,7 @@ public class TicTacToeCheck {
 				BR = "X";
 				uc = true;
 			}
-			System.out.println("Rand = " + rand);
-			System.out.println("uc = " + uc);
+
 		} while (uc == false);
 
 	}
