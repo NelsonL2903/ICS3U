@@ -1,4 +1,4 @@
-package ccatictactoe;
+package random;
 
 import java.util.Random;
 

@@ -136,6 +136,34 @@ public class TwoPlayerGUI extends JPanel implements MouseListener, ActionListene
 			g2d.drawString("Click the button if you would like to play again", 335, 340);
 		}
 
+		if ((board[0][0] == 1 && board[0][1] == 1 && board[0][2] == 1)
+				|| (board[0][0] == 2 && board[0][1] == 2 && board[0][2] == 2)) {
+			g2d.drawLine(300, 50, 660, 50);
+		} else if ((board[1][0] == 1 && board[1][1] == 1 && board[1][2] == 1)
+				|| (board[1][0] == 2 && board[1][1] == 2 && board[1][2] == 2)) {
+			g2d.drawLine(300, 155, 660, 155);
+		} else if ((board[2][0] == 1 && board[2][1] == 1 && board[2][2] == 1)
+				|| (board[2][0] == 2 && board[2][1] == 2 && board[2][2] == 2)) {
+			g2d.drawLine(300, 255, 660, 255);
+
+		} else if ((board[0][0] == 1 && board[1][0] == 1 && board[2][0] == 1)
+				|| (board[0][0] == 2 && board[1][0] == 2 && board[2][0] == 2)) {
+			g2d.drawLine(375, 0, 375, 305);
+		} else if ((board[0][1] == 1 && board[1][1] == 1 && board[2][1] == 1)
+				|| (board[0][1] == 2 && board[1][1] == 2 && board[2][1] == 2)) {
+			g2d.drawLine(480, 0, 480, 305);
+		} else if ((board[0][2] == 1 && board[1][2] == 1 && board[2][2] == 1)
+				|| (board[0][2] == 2 && board[1][2] == 2 && board[2][2] == 2)) {
+			g2d.drawLine(585, 0, 585, 305);
+
+		} else if ((board[0][0] == 1 && board[1][1] == 1 && board[2][2] == 1)
+				|| (board[0][0] == 2 && board[1][1] == 2 && board[2][2] == 2)) {
+			g2d.drawLine(320, 0, 635, 305);
+		} else if ((board[2][0] == 1 && board[1][1] == 1 && board[0][2] == 1)
+				|| (board[2][0] == 2 && board[1][1] == 2 && board[0][2] == 2)) {
+			g2d.drawLine(325, 305, 635, 0);
+		}
+
 	}
 
 	public static void main(String[] args) {
