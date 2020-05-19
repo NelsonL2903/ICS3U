@@ -3,6 +3,8 @@ package ccatictactoe;
 import java.util.Random;
 import java.util.Scanner;
 
+// creates random outcomes of this tic tac toe game and prints out a statement declaring the result of the 
+//game to ensure that there are no outcomes where the computer would lose
 public class ArrayRandQuickCheck {
 
 	static Scanner keyboard = new Scanner(System.in);
@@ -12,31 +14,49 @@ public class ArrayRandQuickCheck {
 
 		ArrayRandQuickCheck aqc = new ArrayRandQuickCheck();
 
+		// this is looped to repeat the process of finding new outcomes
 		do {
+			// clears the game board
 			aqc.cb();
 
+			// selects a random position for the player to play
 			aqc.pt();
 
+			// the computer's first turn
 			aqc.cft();
 
 			do {
+				// selects a random position for the player to play
 				aqc.pt();
 
+				// the computer's Personal Win Check. Checks to see if the computer is in a
+				// situation where it may win the game next turn.
 				if (aqc.pwc() == false) {
+					// The computer's Opponent Win Check. Checks to see if the opponent is in a
+					// position where they may win next turn, and if so prevent them from doing so
 					if (aqc.owc() == false) {
+						// The computer's Situational Win Check. Checks to see if the opponent is in a
+						// situation where they could set themselves up to win in two turns
 						if (aqc.swc() == false) {
+							// the computer's Random Check. Checks a few specific but random scenarios where
+							// the computer may lose
 							if (aqc.rc() == false) {
+								// Computer's Final Check. if no other checks run true, plays its turn in a
+								// random spot
 								aqc.fc();
 							}
 						}
 					}
 				}
+				// Continues to loop the player's and computer's turns as long as the game has
+				// not finished
 			} while (aqc.wc() == false && aqc.dc() == false);
 
 		} while (true);
 
 	}
 
+	// selects a random position for the player to play
 	public void pt() {
 		boolean cc = false;
 		do {
@@ -50,6 +70,7 @@ public class ArrayRandQuickCheck {
 			int highC = 3;
 			int column;
 			column = answerC.nextInt(highC - lowC) + lowC;
+			// determines a random row and column
 			if (board[row][column] == 0) {
 				board[row][column] = 1;
 				cc = true;
@@ -57,10 +78,12 @@ public class ArrayRandQuickCheck {
 				cc = false;
 			}
 
+			// if the position is not blank then it will loop and find a new position
 		} while (cc == false);
 
 	}
 
+	// the computer's first turn
 	public void cft() {
 		if (board[0][0] == 1 || board[0][2] == 1 || board[2][0] == 1 || board[2][2] == 1) {
 			board[1][1] = 2;
@@ -72,6 +95,8 @@ public class ArrayRandQuickCheck {
 
 	}
 
+	// the computer's Personal Win Check. Checks to see if the computer is in a
+	// situation where it may win the game next turn.
 	public boolean pwc() {
 		if (board[0][0] == 2 && board[1][0] == 2 && board[2][0] == 0) {
 			board[2][0] = 2;
@@ -157,6 +182,8 @@ public class ArrayRandQuickCheck {
 		return false;
 	}
 
+	// The computer's Opponent Win Check. Checks to see if the opponent is in a
+	// position where they may win next turn, and if so prevent them from doing so
 	public boolean owc() {
 
 		if (board[0][0] == 1 && board[1][0] == 1 && board[2][0] == 0) {
@@ -243,6 +270,8 @@ public class ArrayRandQuickCheck {
 		return false;
 	}
 
+	// The computer's Situational Win Check. Checks to see if the opponent is in a
+	// situation where they could set themselves up to win in two turns
 	public boolean swc() {
 		if (board[0][1] == 1 && board[2][0] == 1 && board[0][0] == 0 && board[0][2] == 0 && board[1][0] == 0) {
 			board[0][0] = 2;
@@ -316,6 +345,8 @@ public class ArrayRandQuickCheck {
 		return false;
 	}
 
+	// Win Check. checks to see if the computer is in a position to win next turn
+	// and if so, wins.
 	public boolean wc() {
 
 		if (board[0][0] == 1 && board[0][1] == 1 && board[0][2] == 1) {
@@ -375,6 +406,7 @@ public class ArrayRandQuickCheck {
 		return false;
 	}
 
+	// Draw Check. checks to see if game has ended in a draw
 	public boolean dc() {
 		if (board[0][0] != 0 && board[0][1] != 0 && board[0][2] != 0 && board[1][0] != 0 && board[1][1] != 0
 				&& board[1][2] != 0 && board[2][0] != 0 && board[2][1] != 0 && board[2][2] != 0) {
@@ -384,6 +416,8 @@ public class ArrayRandQuickCheck {
 		return false;
 	}
 
+	// the computer's Random Check. Checks a few specific but random scenarios where
+	// the computer may lose
 	public boolean rc() {
 		if (board[1][0] == 1 && board[1][1] == 2 && board[1][2] == 1 && board[0][0] == 0) {
 			board[0][0] = 2;
@@ -411,6 +445,8 @@ public class ArrayRandQuickCheck {
 		return false;
 	}
 
+	// Computer's Final Check. if no other checks run true, plays its turn in a
+	// random spot
 	public boolean fc() {
 		if (board[0][0] == 0) {
 			board[0][0] = 2;
@@ -443,6 +479,7 @@ public class ArrayRandQuickCheck {
 		return false;
 	}
 
+	// clears board and sets all values of the game board to zero
 	public void cb() {
 		board[0][0] = 0;
 		board[0][1] = 0;
