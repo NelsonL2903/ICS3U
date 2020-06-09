@@ -3,8 +3,11 @@ package ccatictactoe;
 import java.util.Random;
 import java.util.Scanner;
 
+// Will check random possibilities of the tic tac toe game to ensure that the computer can't lose, 
+// this class doesn't print the game board, only a sentence stating the result
 public class RandQuickCheck {
 
+	// nine variables represent the nine squares of the board
 	String TL = " ";
 	String TM = " ";
 	String TR = " ";
@@ -20,29 +23,45 @@ public class RandQuickCheck {
 	public static void main(String[] args) {
 		RandQuickCheck rqc = new RandQuickCheck();
 		do {
+			// clears the game board
 			rqc.cb();
+			// selects a random position for the player to play
 			rqc.pt();
 
+			// the computer's first turn
 			rqc.cft();
 
 			do {
 				rqc.pt();
 
+				// the computer's Personal Win Check. Checks to see if the computer is in a
+				// situation where it may win the game next turn.
 				if (rqc.pwc() == false) {
+					// The computer's Opponent Win Check. Checks to see if the opponent is in a
+					// position where they may win next turn, and if so prevent them from doing so
 					if (rqc.owc() == false) {
+						// The computer's Situational Win Check. Checks to see if the opponent is in a
+						// situation where they could set themselves up to win in two turns
 						if (rqc.swc() == false) {
+							// the computer's Random Check. Checks a few specific but random scenarios where
+							// the computer may lose
 							if (rqc.rc() == false) {
+								// Computer's Final Check. if no other checks run true, plays its turn in a
+								// random spot
 								rqc.fc();
 							}
 						}
 					}
 				}
+				// Continues to loop the player's and computer's turns as long as the game has
+				// not finished
 			} while (rqc.wc() == false && rqc.dc() == false);
 
 		} while (true);
 
 	}
 
+	// selects a random position for the player to play
 	public void pt() {
 
 		boolean uc = false;
@@ -51,6 +70,7 @@ public class RandQuickCheck {
 			int low = 1;
 			int high = 10;
 			int rand;
+			// determines a random square to play
 			rand = answer.nextInt(high - low) + low;
 			if (rand == 1 && TL.equals(" ")) {
 				TL = "X";
@@ -80,11 +100,13 @@ public class RandQuickCheck {
 				BR = "X";
 				uc = true;
 			}
+			// if the position is not blank then it will loop and find a new position
 		} while (uc = false);
 
 	}
 
 	public void cft() {
+		// the computer's first turn
 		if (TL.equals("X") || TR.equals("X") || BL.equals("X") || BR.equals("X")) {
 			MM = "O";
 		} else if (TM.equals("X") || ML.equals("X") || MR.equals("X") || BM.equals("X")) {
@@ -95,6 +117,8 @@ public class RandQuickCheck {
 
 	}
 
+	// the computer's Personal Win Check. Checks to see if the computer is in a
+	// situation where it may win the game next turn.
 	public boolean pwc() {
 		if (TL.equals("O") && ML.equals("O") && BL.equals(" ")) {
 			BL = "O";
@@ -180,6 +204,8 @@ public class RandQuickCheck {
 		return false;
 	}
 
+	// The computer's Opponent Win Check. Checks to see if the opponent is in a
+	// position where they may win next turn, and if so prevent them from doing so
 	public boolean owc() {
 		if (TL.equals("X") && ML.equals("X") && BL.equals(" ")) {
 			BL = "O";
@@ -265,6 +291,8 @@ public class RandQuickCheck {
 		return false;
 	}
 
+	// The computer's Situational Win Check. Checks to see if the opponent is in a
+	// situation where they could set themselves up to win in two turns
 	public boolean swc() {
 		if (TM.equals("X") && BL.equals("X") && TL.equals(" ") && TR.equals(" ") && ML.equals(" ")) {
 			TL = "O";
@@ -338,6 +366,8 @@ public class RandQuickCheck {
 		return false;
 	}
 
+	// Win Check. checks to see if the computer is in a position to win next turn
+	// and if so, wins.
 	public boolean wc() {
 		if (TL.equals("X") && TM.equals("X") && TR.equals("X")) {
 			System.out.println("You have won!");
@@ -396,6 +426,7 @@ public class RandQuickCheck {
 		return false;
 	}
 
+	// Draw Check. checks to see if game has ended in a draw
 	public boolean dc() {
 		if (!TL.equals(" ") && !TM.equals(" ") && !TR.equals(" ") && !ML.equals(" ") && !MM.equals(" ")
 				&& !MR.equals(" ") && !BL.equals(" ") && !BM.equals(" ") && !BR.equals(" ")) {
@@ -405,6 +436,8 @@ public class RandQuickCheck {
 		return false;
 	}
 
+	// the computer's Random Check. Checks a few specific but random scenarios where
+	// the computer may lose
 	public boolean rc() {
 		if (ML.equals("X") && MM.equals("O") && MR.equals("X") && TL.equals(" ")) {
 			TL = "O";
@@ -433,6 +466,7 @@ public class RandQuickCheck {
 		return false;
 	}
 
+	// clears board and sets all values of the game board to blank
 	public void cb() {
 		TL = " ";
 		TM = " ";
@@ -445,6 +479,8 @@ public class RandQuickCheck {
 		BR = " ";
 	}
 
+	// Computer's Final Check. if no other checks run true, plays its turn in a
+	// random spot
 	public boolean fc() {
 		if (TL.equals(" ")) {
 			TL = "O";

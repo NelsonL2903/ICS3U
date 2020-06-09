@@ -101,8 +101,7 @@ public class ArrayAllChecks {
 	}
 
 	// the computer's Personal Win Check. Checks to see if the computer is in a
-	// situation where it may
-	// win the game next turn.
+	// situation where it may win the game next turn.
 	public boolean pwc() {
 		if (board[0][0] == 2 && board[1][0] == 2 && board[2][0] == 0) {
 			board[2][0] = 2;

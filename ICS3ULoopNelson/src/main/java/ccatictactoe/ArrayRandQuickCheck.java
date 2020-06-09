@@ -4,7 +4,7 @@ import java.util.Random;
 import java.util.Scanner;
 
 // creates random outcomes of this tic tac toe game and prints out a statement declaring the result of the 
-//game to ensure that there are no outcomes where the computer would lose
+//game to ensure that there are no outcomes where the computer would lose, uses arrays
 public class ArrayRandQuickCheck {
 
 	static Scanner keyboard = new Scanner(System.in);

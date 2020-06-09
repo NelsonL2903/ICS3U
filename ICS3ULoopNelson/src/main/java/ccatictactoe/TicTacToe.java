@@ -2,8 +2,10 @@ package ccatictactoe;
 
 import java.util.Scanner;
 
+//game of tic tac toe
 public class TicTacToe {
 
+	// nine variables represent the nine squares of the board
 	String TL = " ";
 	String TM = " ";
 	String TR = " ";
@@ -21,27 +23,44 @@ public class TicTacToe {
 		String answer;
 
 		do {
+			// clears the game board
 			nttt.cb();
+			// gets input from the player on where they would like to play, and plays there
 			nttt.pt();
 
+			// the computer's first turn
 			nttt.cft();
 
 			do {
 				nttt.pt();
 
+				// the computer's Personal Win Check. Checks to see if the computer is in a
+				// situation where it may win the game next turn.
 				if (nttt.pwc() == false) {
+					// The computer's Opponent Win Check. Checks to see if the opponent is in a
+					// position where they may win next turn, and if so prevent them from doing so
 					if (nttt.owc() == false) {
+						// The computer's Situational Win Check. Checks to see if the opponent is in a
+						// situation where they could set themselves up to win in two turns
 						if (nttt.swc() == false) {
+							// the computer's Random Check. Checks a few specific but random scenarios where
+							// the computer may lose
 							if (nttt.rc() == false) {
+								// Computer's Final Check. if no other checks run true, plays its turn in a
+								// random spot
 								nttt.fc();
 							}
 						}
 					}
 				}
+				// Continues to loop the player's and computer's turns as long as the game has
+				// not finished
 			} while (nttt.wc() == false && nttt.dc() == false);
 
+			// prints out the game board
 			nttt.pb();
 
+			// will start a new game if the player would like to
 			System.out.println("Would you like to play again?");
 			answer = keyboard.nextLine();
 		} while (answer.equals("Yes") || answer.equals("yes") || answer.equals("YES") || answer.equals("y")
@@ -49,8 +68,10 @@ public class TicTacToe {
 
 	}
 
+	// gets input from the player on where they would like to play, and plays there
 	public void pt() {
 
+		// prints the board
 		System.out.println("    ");
 		System.out.print(TL + " | ");
 		System.out.print(TM + " | ");
@@ -63,6 +84,7 @@ public class TicTacToe {
 		System.out.print(BL + " | ");
 		System.out.print(BM + " | ");
 		System.out.println(BR);
+		// gets input from the player on where they would like to play, and plays there
 		boolean uc = false;
 		System.out.println("Where would you like to play? For example: Top Left = TL");
 		do {
@@ -100,6 +122,7 @@ public class TicTacToe {
 
 	}
 
+	// the computer's first turn
 	public void cft() {
 		if (TL.equals("X") || TR.equals("X") || BL.equals("X") || BR.equals("X")) {
 			MM = "O";
@@ -111,6 +134,8 @@ public class TicTacToe {
 
 	}
 
+	// the computer's Personal Win Check. Checks to see if the computer is in a
+	// situation where it may win the game next turn.
 	public boolean pwc() {
 		if (TL.equals("O") && ML.equals("O") && BL.equals(" ")) {
 			BL = "O";
@@ -196,6 +221,8 @@ public class TicTacToe {
 		return false;
 	}
 
+	// The computer's Opponent Win Check. Checks to see if the opponent is in a
+	// position where they may win next turn, and if so prevent them from doing so
 	public boolean owc() {
 		if (TL.equals("X") && ML.equals("X") && BL.equals(" ")) {
 			BL = "O";
@@ -281,6 +308,8 @@ public class TicTacToe {
 		return false;
 	}
 
+	// The computer's Situational Win Check. Checks to see if the opponent is in a
+	// situation where they could set themselves up to win in two turns
 	public boolean swc() {
 		if (TM.equals("X") && BL.equals("X") && TL.equals(" ") && TR.equals(" ") && ML.equals(" ")) {
 			TL = "O";
@@ -354,6 +383,8 @@ public class TicTacToe {
 		return false;
 	}
 
+	// Win Check. checks to see if the computer is in a position to win next turn
+	// and if so, wins.
 	public boolean wc() {
 		if (TL.equals("X") && TM.equals("X") && TR.equals("X")) {
 			System.out.println("You have won!");
@@ -412,6 +443,7 @@ public class TicTacToe {
 		return false;
 	}
 
+	// Draw Check. checks to see if game has ended in a draw
 	public boolean dc() {
 		if (!TL.equals(" ") && !TM.equals(" ") && !TR.equals(" ") && !ML.equals(" ") && !MM.equals(" ")
 				&& !MR.equals(" ") && !BL.equals(" ") && !BM.equals(" ") && !BR.equals(" ")) {
@@ -421,6 +453,8 @@ public class TicTacToe {
 		return false;
 	}
 
+	// the computer's Random Check. Checks a few specific but random scenarios where
+	// the computer may lose
 	public boolean rc() {
 		if (ML.equals("X") && MM.equals("O") && MR.equals("X") && TL.equals(" ")) {
 			TL = "O";
@@ -449,6 +483,7 @@ public class TicTacToe {
 		return false;
 	}
 
+	// prints out the game board
 	public void pb() {
 		System.out.print(TL + " | ");
 		System.out.print(TM + " | ");
@@ -463,6 +498,7 @@ public class TicTacToe {
 		System.out.println(BR);
 	}
 
+	// clears the game board and sets all squares to blank
 	public void cb() {
 		TL = " ";
 		TM = " ";
@@ -475,6 +511,8 @@ public class TicTacToe {
 		BR = " ";
 	}
 
+	// Computer's Final Check. if no other checks run true, plays its turn in a
+	// random spot
 	public boolean fc() {
 		if (TL.equals(" ")) {
 			TL = "O";

@@ -17,10 +17,12 @@ public class Ship {
 	}
 
 	public String getName() {
+
 		return name;
 	}
 
 	public void setName(String name) {
+		name = "Red Rocket";
 		this.name = name;
 	}
 
