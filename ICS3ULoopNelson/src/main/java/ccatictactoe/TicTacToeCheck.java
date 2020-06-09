@@ -3,8 +3,12 @@ package ccatictactoe;
 import java.util.Random;
 import java.util.Scanner;
 
+//creates random outcomes of this tic tac toe game and prints out a statement declaring the result of the 
+//game to ensure that there are no outcomes where the computer would lose. This class also prints out the board 
+//after each turn so if a bug is found it easier to locate and fix.
 public class TicTacToeCheck {
 
+	// nine variables represent the nine squares of the board
 	String TL = " ";
 	String TM = " ";
 	String TR = " ";
@@ -22,33 +26,52 @@ public class TicTacToeCheck {
 		TicTacToeCheck tttc = new TicTacToeCheck();
 
 		do {
+			// clears the game board
 			tttc.cb();
+			// selects a random position for the player to play
 			tttc.pt();
 
+			// the computer's first turn
 			tttc.cft();
 
+			// this is looped to repeat the process of finding new outcomes
 			do {
 				tttc.pt();
 
+				// the computer's Personal Win Check. Checks to see if the computer is in a
+				// situation where it may win the game next turn.
 				if (tttc.pwc() == false) {
+					// The computer's Opponent Win Check. Checks to see if the opponent is in a
+					// position where they may win next turn, and if so prevent them from doing so
 					if (tttc.owc() == false) {
+						// The computer's Situational Win Check. Checks to see if the opponent is in a
+						// situation where they could set themselves up to win in two turns
 						if (tttc.swc() == false) {
+							// the computer's Random Check. Checks a few specific but random scenarios where
+							// the computer may lose
 							if (tttc.rc() == false) {
+								// Computer's Final Check. if no other checks run true, plays its turn in a
+								// random spot
 								tttc.fc();
 							}
 						}
 					}
 				}
+				// Continues to loop the player's and computer's turns as long as the game has
+				// not finished
 			} while (tttc.wc() == false && tttc.dc() == false);
 
+			// prints out the game board
 			tttc.pb();
 
 		} while (true);
 
 	}
 
+	// selects a random position for the player to play
 	public void pt() {
 
+		// prints the board
 		System.out.println("    ");
 		System.out.print(TL + " | ");
 		System.out.print(TM + " | ");
@@ -61,6 +84,7 @@ public class TicTacToeCheck {
 		System.out.print(BL + " | ");
 		System.out.print(BM + " | ");
 		System.out.println(BR);
+		// determines a random square to play
 		boolean uc = false;
 		do {
 
@@ -97,10 +121,12 @@ public class TicTacToeCheck {
 				uc = true;
 			}
 
+			// if the position is not blank then it will loop and find a new position
 		} while (uc == false);
 
 	}
 
+	// the computer's first turn
 	public void cft() {
 		if (TL.equals("X") || TR.equals("X") || BL.equals("X") || BR.equals("X")) {
 			MM = "O";
@@ -112,6 +138,8 @@ public class TicTacToeCheck {
 
 	}
 
+	// the computer's Personal Win Check. Checks to see if the computer is in a
+	// situation where it may win the game next turn.
 	public boolean pwc() {
 		if (TL.equals("O") && ML.equals("O") && BL.equals(" ")) {
 			BL = "O";
@@ -197,6 +225,8 @@ public class TicTacToeCheck {
 		return false;
 	}
 
+	// The computer's Opponent Win Check. Checks to see if the opponent is in a
+	// position where they may win next turn, and if so prevent them from doing so
 	public boolean owc() {
 		if (TL.equals("X") && ML.equals("X") && BL.equals(" ")) {
 			BL = "O";
@@ -282,6 +312,8 @@ public class TicTacToeCheck {
 		return false;
 	}
 
+	// The computer's Situational Win Check. Checks to see if the opponent is in a
+	// situation where they could set themselves up to win in two turns
 	public boolean swc() {
 		if (TM.equals("X") && BL.equals("X") && TL.equals(" ") && TR.equals(" ") && ML.equals(" ")) {
 			TL = "O";
@@ -355,6 +387,8 @@ public class TicTacToeCheck {
 		return false;
 	}
 
+	// Win Check. checks to see if the computer is in a position to win next turn
+	// and if so, wins.
 	public boolean wc() {
 		if (TL.equals("X") && TM.equals("X") && TR.equals("X")) {
 			System.out.println("You have won!");
@@ -413,6 +447,7 @@ public class TicTacToeCheck {
 		return false;
 	}
 
+	// Draw Check. checks to see if game has ended in a draw
 	public boolean dc() {
 		if (!TL.equals(" ") && !TM.equals(" ") && !TR.equals(" ") && !ML.equals(" ") && !MM.equals(" ")
 				&& !MR.equals(" ") && !BL.equals(" ") && !BM.equals(" ") && !BR.equals(" ")) {
@@ -422,6 +457,8 @@ public class TicTacToeCheck {
 		return false;
 	}
 
+	// the computer's Random Check. Checks a few specific but random scenarios where
+	// the computer may lose
 	public boolean rc() {
 		if (ML.equals("X") && MM.equals("O") && MR.equals("X") && TL.equals(" ")) {
 			TL = "O";
@@ -450,6 +487,7 @@ public class TicTacToeCheck {
 		return false;
 	}
 
+	// prints out the game board
 	public void pb() {
 		System.out.print(TL + " | ");
 		System.out.print(TM + " | ");
@@ -464,6 +502,7 @@ public class TicTacToeCheck {
 		System.out.println(BR);
 	}
 
+	// clears the game board and sets all squares to blank
 	public void cb() {
 		TL = " ";
 		TM = " ";
@@ -476,6 +515,8 @@ public class TicTacToeCheck {
 		BR = " ";
 	}
 
+	// Computer's Final Check. if no other checks run true, plays its turn in a
+	// random spot
 	public boolean fc() {
 		if (TL.equals(" ")) {
 			TL = "O";

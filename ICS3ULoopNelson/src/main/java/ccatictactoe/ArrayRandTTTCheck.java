@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 //creates random outcomes of this tic tac toe game and prints out a statement declaring the result of the 
 //game to ensure that there are no outcomes where the computer would lose. This class also prints out the board 
-//after each turn so if a bug is found it easier to locate and fix
+//after each turn so if a bug is found it easier to locate and fix. Uses arrays
 public class ArrayRandTTTCheck {
 
 	static Scanner keyboard = new Scanner(System.in);
