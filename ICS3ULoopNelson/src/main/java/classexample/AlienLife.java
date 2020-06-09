@@ -3,7 +3,6 @@ package classexample;
 /*
  * Class to store basic data on an alien.
  */
-
 public class AlienLife {
 
 	// These are all member variables, and visible to all methods
@@ -11,8 +10,33 @@ public class AlienLife {
 	private Boolean eatsHumans; // true if alien eats humans
 	private String species; // alien's species
 	private Ship ship; // alien's ship
+
 	private int heads;
 	private int teeth;
+
+	private boolean computeNumberOfTeeth(int avgTeethPerHead, int heads) {
+		teeth = heads * avgTeethPerHead;
+		if (teeth > 100) {
+			return true;
+		}
+		return false;
+	}
+
+	public int getHeads() {
+		return heads;
+	}
+
+	public void setHeads(int heads) {
+		this.heads = heads;
+	}
+
+	public int getTeeth() {
+		return teeth;
+	}
+
+	public void setTeeth(int teeth) {
+		this.teeth = teeth;
+	}
 
 	/*
 	 * This is the main method. This method is special because it is the one that is
@@ -27,6 +51,18 @@ public class AlienLife {
 
 		// create an instance of a AlienLife class and initialize
 		AlienLife itchyBurn = new AlienLife(true, "dynoworm", "destructo wagon");
+
+		if (sandersRevenge.computeNumberOfTeeth(50, 8)) {
+			System.out.println("alien has > 100 teeth");
+		} else {
+			System.out.println("alien has <= 100 teeth");
+		}
+
+		if (itchyBurn.computeNumberOfTeeth(1000, 1)) {
+			System.out.println("alien has > 100 teeth");
+		} else {
+			System.out.println("alien has <= 100 teeth");
+		}
 
 		// call the print method on the sandersRevenge instance of AlienLife
 		sandersRevenge.print();
@@ -63,6 +99,8 @@ public class AlienLife {
 		} else {
 			System.out.println(species + " does not eat humans");
 		}
+
+		System.out.println("number of teeth is " + teeth);
 	}
 
 	// the following methods are called setters and getters
@@ -91,22 +129,6 @@ public class AlienLife {
 
 	public void setShip(Ship ship) {
 		this.ship = ship;
-	}
-
-	public int getHeads() {
-		return heads;
-	}
-
-	public void setHeads(int heads) {
-		this.heads = heads;
-	}
-
-	public int getTeeth() {
-		return teeth;
-	}
-
-	public void setTeeth(int teeth) {
-		this.teeth = teeth;
 	}
 
 }

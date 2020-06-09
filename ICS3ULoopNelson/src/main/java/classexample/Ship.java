@@ -1,9 +1,7 @@
 package classexample;
 
 //A class for alien space ships
-
 public class Ship {
-
 	String name;
 	Boolean lightSpeed; // true if the ship can travel faster than light
 
@@ -17,12 +15,10 @@ public class Ship {
 	}
 
 	public String getName() {
-
 		return name;
 	}
 
 	public void setName(String name) {
-		name = "Red Rocket";
 		this.name = name;
 	}
 
