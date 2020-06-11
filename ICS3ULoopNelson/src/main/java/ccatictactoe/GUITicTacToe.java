@@ -17,7 +17,9 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
-//tic tac toe game but with GUI
+/*
+ * tic tac toe game but with GUI
+ */
 public class GUITicTacToe extends JPanel implements MouseListener, ActionListener {
 
 	static int[][] board = new int[3][3];
@@ -644,6 +646,8 @@ public class GUITicTacToe extends JPanel implements MouseListener, ActionListene
 		GUITicTacToe gttt = new GUITicTacToe();
 		boolean space = false;
 		do {
+			// retrieves the coordinates of the click, and if the spot that was clicked was
+			// within the coordinates of a blank square, the player plays there
 			if (gttt.cwc() == false && gttt.clc() == false && gttt.dc() == false)
 				if (e.getX() >= 339 && e.getX() <= 429 && e.getY() >= 138 && e.getY() <= 228 && board[0][0] == 0) {
 					board[0][0] = 1;

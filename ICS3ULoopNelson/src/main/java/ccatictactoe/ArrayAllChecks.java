@@ -1,7 +1,9 @@
 package ccatictactoe;
 
-//this class checks all possible outcomes of this tic tac toe game by finding random outcomes, 
-//assigning them a unique number and storing all new outcomes in an array
+/*
+ * this class checks all possible outcomes of this tic tac toe game by finding random outcomes, 
+ * assigning them a unique number and storing all new outcomes in an array
+ */
 public class ArrayAllChecks {
 
 	static int[][] board = new int[3][3];

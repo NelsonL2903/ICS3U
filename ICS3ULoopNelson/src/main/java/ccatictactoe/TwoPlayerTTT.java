@@ -2,8 +2,12 @@ package ccatictactoe;
 
 import java.util.Scanner;
 
+/*
+ * two player game of tic tac toe
+ */
 public class TwoPlayerTTT {
 
+	// nine variables represent the nine squares of the board
 	String TL = " ";
 	String TM = " ";
 	String TR = " ";
@@ -22,21 +26,30 @@ public class TwoPlayerTTT {
 		String answer;
 
 		do {
+			// clears the board
 			twop.cb();
 
 			do {
+				// if the game is not yet over, will run the method for player 1's turn
 				if (twop.igwc() == false && twop.igdc() == false) {
+					// gets input from player 1 on where they would like to play, and plays there
 					twop.pt1();
 				}
 
+				// if the game is not yet over, will run the method for player 2's turn
 				if (twop.igwc() == false && twop.igdc() == false) {
+					// gets input from player 2 on where they would like to play, and plays there
 					twop.pt2();
 				}
 
+				// continues to loop as long as the game is not yet over, allowing the players
+				// to continue to take their turns
 			} while (twop.wc() == false && twop.dc() == false);
 
+			// prints out the game board
 			twop.pb();
 
+			// will start a new game if the player would like to
 			System.out.println("Would you like to play again?");
 			answer = keyboard.nextLine();
 		} while (answer.equals("Yes") || answer.equals("yes") || answer.equals("YES") || answer.equals("y")
@@ -44,6 +57,8 @@ public class TwoPlayerTTT {
 
 	}
 
+	// Win Check. checks to see if someone has won the game, prints a statement
+	// declaring the outcome
 	public boolean wc() {
 		if (TL.equals("X") && TM.equals("X") && TR.equals("X")) {
 			System.out.println("Player One has won!");
@@ -102,6 +117,8 @@ public class TwoPlayerTTT {
 		return false;
 	}
 
+	// In Game Win Check, checks to see if anyone has won the game yet. Does not
+	// print out a statement
 	public boolean igwc() {
 		if (TL.equals("X") && TM.equals("X") && TR.equals("X")) {
 			return true;
@@ -144,6 +161,7 @@ public class TwoPlayerTTT {
 		return false;
 	}
 
+	// Draw Check. checks to see if game has ended in a draw. Prints out a statement
 	public boolean dc() {
 		if (!TL.equals(" ") && !TM.equals(" ") && !TR.equals(" ") && !ML.equals(" ") && !MM.equals(" ")
 				&& !MR.equals(" ") && !BL.equals(" ") && !BM.equals(" ") && !BR.equals(" ")) {
@@ -153,6 +171,8 @@ public class TwoPlayerTTT {
 		return false;
 	}
 
+	// In Game Draw Check. checks to see if game has ended in a draw. Does not print
+	// out a statement
 	public boolean igdc() {
 		if (!TL.equals(" ") && !TM.equals(" ") && !TR.equals(" ") && !ML.equals(" ") && !MM.equals(" ")
 				&& !MR.equals(" ") && !BL.equals(" ") && !BM.equals(" ") && !BR.equals(" ")) {
@@ -161,6 +181,7 @@ public class TwoPlayerTTT {
 		return false;
 	}
 
+	// prints out the game board
 	public void pb() {
 		System.out.print(TL + " | ");
 		System.out.print(TM + " | ");
@@ -175,6 +196,7 @@ public class TwoPlayerTTT {
 		System.out.println(BR);
 	}
 
+	// clears the game board
 	public void cb() {
 		TL = " ";
 		TM = " ";
@@ -187,8 +209,10 @@ public class TwoPlayerTTT {
 		BR = " ";
 	}
 
+	// gets input from player 1 on where they would like to play, and plays there
 	public void pt1() {
 
+		// prints out the game board
 		System.out.println("    ");
 		System.out.print(TL + " | ");
 		System.out.print(TM + " | ");
@@ -234,12 +258,15 @@ public class TwoPlayerTTT {
 				BR = "X";
 				uc = true;
 			}
+			// will loop if the chosen square is not blank, or if format is incorrect
 		} while (uc == false);
 
 	}
 
+	// gets input from player 2 on where they would like to play, and plays there
 	public void pt2() {
 
+		// prints out the game board
 		System.out.println("    ");
 		System.out.print(TL + " | ");
 		System.out.print(TM + " | ");
@@ -285,6 +312,7 @@ public class TwoPlayerTTT {
 				BR = "O";
 				uc = true;
 			}
+			// will loop if the chosen square is not blank, or if format is incorrect
 		} while (uc == false);
 
 	}

@@ -2,7 +2,9 @@ package ccatictactoe;
 
 import java.util.Scanner;
 
-// A game of tic tac toe using arrays
+/*
+*A game of tic tac toe using arrays
+*/
 public class ArrayTicTacToe {
 
 	static Scanner keyboard = new Scanner(System.in);
@@ -62,7 +64,6 @@ public class ArrayTicTacToe {
 
 			// gets input from the player if he would like to play again
 			System.out.println("Would you like to play again?");
-			keyboard.nextLine();
 			answer = keyboard.nextLine();
 
 			// will start a new game if the player would like to

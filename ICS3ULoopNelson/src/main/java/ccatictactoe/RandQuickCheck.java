@@ -3,8 +3,10 @@ package ccatictactoe;
 import java.util.Random;
 import java.util.Scanner;
 
-// Will check random possibilities of the tic tac toe game to ensure that the computer can't lose, 
-// this class doesn't print the game board, only a sentence stating the result
+/*
+ * Will check random possibilities of the tic tac toe game to ensure that the computer can't lose, 
+ * this class doesn't print the game board, only a sentence stating the result
+ */
 public class RandQuickCheck {
 
 	// nine variables represent the nine squares of the board

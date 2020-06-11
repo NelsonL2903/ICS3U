@@ -2,7 +2,9 @@ package ccatictactoe;
 
 import java.util.Random;
 
-// chooses a random square for the user to play
+/*
+ * chooses a random square for the user to play
+ */
 public class RandomUserInput {
 
 	public void randui(int[][] board) {

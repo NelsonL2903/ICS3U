@@ -2,7 +2,9 @@ package ccatictactoe;
 
 import java.util.Scanner;
 
-//game of tic tac toe
+/*
+ * game of tic tac toe
+ */
 public class TicTacToe {
 
 	// nine variables represent the nine squares of the board
@@ -383,8 +385,7 @@ public class TicTacToe {
 		return false;
 	}
 
-	// Win Check. checks to see if the computer is in a position to win next turn
-	// and if so, wins.
+	// Win Check. checks to see if anyone has won the game
 	public boolean wc() {
 		if (TL.equals("X") && TM.equals("X") && TR.equals("X")) {
 			System.out.println("You have won!");
