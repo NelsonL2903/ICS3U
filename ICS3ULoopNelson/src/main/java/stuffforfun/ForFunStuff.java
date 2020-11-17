@@ -56,25 +56,28 @@ public class ForFunStuff {
 		System.out.println(rttitle);
 
 		Elements rtreview = rtdoc.select("h2.mop-ratings-wrap__score");
-		System.out.println(rtreview);
 
 		String h2title = rtreview.toString();
-		int tl = 267 + rtmovie.length();
-		int tr = 269 + rtmovie.length();
-		int bl = 546 + 2 * (rtmovie.length());
-		int br = 548 + 2 * (rtmovie.length());
-		String rtomatoreview = h2title.substring(tl, tr);
-		String rtomatoreview2 = h2title.substring(bl, br);
 		// System.out.println(h2title);
-		System.out.println(rtomatoreview);
-		System.out.println(rtomatoreview2);
 
-		double doublertcrit = Double.valueOf(rtomatoreview);
-		int finalrtcrit = (int) doublertcrit;
-		double doublertaud = Double.valueOf(rtomatoreview2);
-		int finalrtaud = (int) doublertaud;
-		System.out.println("Rotten Tomatoes Critic Review: " + finalrtcrit + "%");
-		System.out.println("Rotten Tomatoes Audience Review: " + finalrtaud + "%");
+		String h2titlea = h2title.replaceAll("([a-z])", "");
+		String h2titleb = h2titlea.replaceAll("([A-Z])", "");
+		String h2titlec = h2titleb.replaceAll("-", "");
+		String h2titled = h2titlec.replaceAll("_", "");
+		String h2titlee = h2titled.replaceAll("=", "");
+		String h2titlef = h2titlee.replaceAll(">", "");
+		String h2titleg = h2titlef.replaceAll("<", "");
+		String h2titleh = h2titleg.replaceAll("", "");
+		String h2titlei = h2titleh.replaceAll("/", "");
+		String h2titlej = h2titlei.replaceAll("%", "");
+		String h2titlek = h2titlej.replaceAll(" ", "");
+		String h2titlem = h2titlek.replaceAll("\"", "");
+		// System.out.println(h2titlem);
+
+		String rtcrit = h2titlem.substring(1, 3);
+		String rtaud = h2titlem.substring(7, 9);
+		System.out.println(rtcrit);
+		System.out.println(rtaud);
 
 	}
 
