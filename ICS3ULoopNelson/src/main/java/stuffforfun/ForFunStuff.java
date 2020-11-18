@@ -45,15 +45,19 @@ public class ForFunStuff {
 
 		String rtlt = imdbtitle.substring(0, imdbtitle.length() - 14);
 		System.out.println(rtlt);
-		String rtmovie = rtlt.replace(" ", "_");
 
-		String rtlink = "https://www.rottentomatoes.com/m/" + rtmovie;
-		System.out.println(rtlink);
+		String rtgs = "http://www.google.com/search?q=Rotten Tomatoes " + movie + "&num=1";
 
-		Document rtdoc = Jsoup.connect(rtlink).get();
+		Document rtdoc = Jsoup.connect(rtgs).get();
 
 		String rttitle = rtdoc.title();
 		System.out.println(rttitle);
+
+		Elements rtresults = rtdoc.select("div.yuRUbf a");
+		System.out.println(rtresults);
+		String art = rtresults.toString();
+		String rtlink = art.substring(9, 42 + rtlt.length());
+		System.out.println(rtlink);
 
 		Elements rtreview = rtdoc.select("h2.mop-ratings-wrap__score");
 
@@ -76,8 +80,12 @@ public class ForFunStuff {
 
 		String rtcrit = h2titlem.substring(1, 3);
 		String rtaud = h2titlem.substring(7, 9);
-		System.out.println(rtcrit);
-		System.out.println(rtaud);
+		System.out.println("Critic Review: " + rtcrit + "%");
+		System.out.println("Audience Review: " + rtaud + "%");
+
+		String mcmovie = rtlt.replace(" ", "-");
+		String mclink = "https://www.metacritic.com/movie/" + mcmovie;
+		System.out.println(mclink);
 
 	}
 
