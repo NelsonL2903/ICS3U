@@ -31,7 +31,6 @@ public class ForFunStuff {
 
 		String imdbtitle = imdbdoc.title();
 		System.out.println(imdbtitle.substring(0, imdbtitle.length() - 7));
-		System.out.println(" ");
 
 		Elements ireview = imdbdoc.select("div.ratingValue strong");
 
@@ -44,7 +43,9 @@ public class ForFunStuff {
 
 		Elements director = imdbdoc.select("div.credit_summary_item a");
 		String dirname = director.toString();
-		System.out.println(dirname.substring(25));
+		int g = dirname.indexOf("<", 42);
+		System.out.println("Directed by: " + dirname.substring(41, g));
+		System.out.println(" ");
 
 		System.out.println("IMDb");
 		System.out.println("Audience Review: " + finalimdb + "%");
@@ -106,10 +107,12 @@ public class ForFunStuff {
 		// System.out.println(h2title2);
 
 		String rtcrit = h2title2.substring(1, 3);
+		int finalrtcrit = Integer.valueOf(rtcrit);
 		String rtaud = h2title2.substring(7, 9);
+		int finalrtaud = Integer.valueOf(rtaud);
 		System.out.println("Rotten Tomatoes");
-		System.out.println("Critic Review: " + rtcrit + "%");
-		System.out.println("Audience Review: " + rtaud + "%");
+		System.out.println("Critic Review: " + finalrtcrit + "%");
+		System.out.println("Audience Review: " + finalrtaud + "%");
 
 		System.out.println(" ");
 		String mcgs = "http://www.google.com/search?q=Metacritic " + movie + "&num=1";
@@ -158,6 +161,19 @@ public class ForFunStuff {
 		double doublemcaud = Double.valueOf(mcaud) * 10;
 		int finalmcaud = (int) doublemcaud;
 		System.out.println("Audience Review: " + finalmcaud + "%");
+		System.out.println(" ");
+
+		int finalaud = (finalimdb + finalrtaud + finalmcaud) / 3;
+		// System.out.println(finalaud);
+
+		int finalcrit = (finalrtcrit + finalmccrit) / 2;
+		// System.out.println(finalcrit);
+
+		int finalaverage = (finalcrit + finalaud) / 2;
+		System.out.println("Averaged Reviews");
+		System.out.println("Critic Review: " + finalcrit + "%");
+		System.out.println("Audience Review: " + finalaud + "%");
+		System.out.println("Final Review: " + finalaverage + "%");
 
 	}
 
