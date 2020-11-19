@@ -126,7 +126,6 @@ public class ForFunStuff {
 		String amc = mcresults.toString();
 		String mclink = amc.substring(9);
 		int h = mclink.indexOf("\"", 10);
-		// System.out.println(h);
 		String mclink2 = mclink.substring(0, h);
 		// System.out.println(mclink2);
 
