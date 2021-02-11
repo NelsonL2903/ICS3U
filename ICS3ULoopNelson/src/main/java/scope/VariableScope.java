@@ -8,11 +8,11 @@ public class VariableScope {
 	 * where it is visible.
 	 */
 
-	private int var1; // What does private mean with respect to variables?
+	private static int var1; // What does private mean with respect to variables?
 	/*
 	 * if a variable is private, that means that only this class may access it
 	 */
-	public int var2; // What does public mean with respect to variables?
+	public static int var2; // What does public mean with respect to variables?
 	/*
 	 * if a variable is public, that means that the whole package may access it
 	 */
@@ -39,7 +39,7 @@ public class VariableScope {
 		// declared in a non-static field
 
 		// What is wrong with this statement?
-		private int var3 = 555;
+		int var3 = 555;
 		// The statement is wrong because the variable is declared in a method, which
 		// means it is
 		// only accessible and visible within the method, so it can't be public or
@@ -54,7 +54,7 @@ public class VariableScope {
 		}
 
 		// Is xxx visible here?
-		xxx = false;
+		boolean xxx = false;
 		// xxx is not visible here as it was declared within brackets {} so it may only
 		// be
 		// accessed within those brackets
@@ -76,7 +76,7 @@ public class VariableScope {
 		double xyz = 2.718;
 
 		// Is xxx visible here?
-		xxx = true;
+		boolean xxx = true;
 		// xxx is not visible here as it was declared within a different method and
 		// within brackets
 
